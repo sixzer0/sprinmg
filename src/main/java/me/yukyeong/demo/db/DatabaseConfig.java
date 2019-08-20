@@ -25,6 +25,7 @@ public class DatabaseConfig {
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource((javax.sql.DataSource) dataSource);
+        sqlSessionFactory.setTypeAliasesPackage("me.spring_boot_init.demo.dto");
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactory.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
         return sqlSessionFactory.getObject();
